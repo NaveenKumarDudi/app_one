@@ -1,0 +1,19 @@
+.heading {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+.subheading {
+    padding-top: 1rem;
+    width: 100%;
+    text-align: center;
+}
+.signup-form {
+    .error {
+        color: rgba(216, 56, 56, 0.8);
+        padding-top: 0.25rem;
+    }
+    .signup-button {
+        width: 100%;
+    }
+}

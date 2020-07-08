@@ -1,0 +1,32 @@
+<h1 class='heading'>Sign In</h1>
+<form nz-form [formGroup]='signinForm' (ngSubmit)='submitForm()' class='signin-form'>
+    <nz-form-item>
+        <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="email" placeholder="Email" />
+        </nz-input-group>
+        <span class="error" *ngIf='signinForm.controls["email"].hasError("email") 
+            && signinForm.controls["email"].touched'>
+            Invalid email address
+        </span>
+        <span class="error" *ngIf='signinForm.controls["email"].hasError("required")
+             && signinForm.controls["email"].touched'>
+            Email is required
+        </span>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="password" placeholder="Password" />
+        </nz-input-group>
+        <span class="error" *ngIf='signinForm.controls["password"].hasError("required")
+             && signinForm.controls["password"].touched'>
+            Password is required
+        </span>
+    </nz-form-item>
+    <div class='spinner' *ngIf='loading'>
+        <nz-spin nzSimple></nz-spin>
+    </div>
+    <button nz-button class='signin-button' *ngIf='!loading'>SIGN IN</button>
+</form>
+<h4 class='subheading'>
+    <a (click)='toggleSignin()'>New user? Create a account.</a>
+</h4>

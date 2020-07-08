@@ -1,0 +1,29 @@
+<h1 class='heading'>Sign Up</h1>
+<form nz-form [formGroup]='signupForm' (ngSubmit)='submitForm()' class='signup-form'>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Email is required !">
+            <nz-input-group nzPrefixIcon="user">
+                <input type="text" nz-input formControlName="email" placeholder="Email" />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+            <nz-input-group nzPrefixIcon="lock">
+                <input type="password" nz-input formControlName="password" placeholder="Password" />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Confirm Password is required!">
+            <nz-input-group nzPrefixIcon="lock">
+                <input type="password" nz-input formControlName="confirm" placeholder="Password" />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    
+    <button nz-button class='signup-button'>SIGN UP</button>
+</form>
+<h4 class='subheading'>
+    <a (click)='toggleSignup()'>Already have a account?</a>
+</h4>

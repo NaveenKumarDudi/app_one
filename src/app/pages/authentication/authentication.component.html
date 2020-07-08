@@ -1,0 +1,8 @@
+<div nz-row nzJustify='center' nzAlign='middle' class='wrapper'>
+    <div *ngIf='signin' nz-col [nzXs]='{ span: 12 }' [nzLg]='{ span: 6 }' class='signin-container'>
+        <app-signin (toggleBlock)='toggleBlock($event)'></app-signin>
+    </div>
+    <div *ngIf='signup' nz-col [nzXs]='{ span: 12 }' [nzLg]='{ span: 6 }' class='signup-container'>
+        <app-signup (toggleBlock)='toggleBlock($event)'></app-signup>
+    </div>
+</div>
