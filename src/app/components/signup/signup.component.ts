@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IUser } from 'src/app/models/User';
 import { UserService } from 'src/app/services/user.service';
+import { IError } from 'src/app/models/Error';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +21,8 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -36,15 +39,42 @@ export class SignupComponent implements OnInit {
       password: ['', Validators.required ],
       confirm: ['', Validators.required ]
     });
+
+    this.userService.getLoading().subscribe(
+      data => this.loading = data
+    );
+
+    this.userService.getErrors().subscribe(
+      (data: IError) =>  {
+        if (data) {
+          this.sharedService.notify('error', data.friendly);
+        }
+      }
+    );
+
+    this.userService.getIsAuthenticated().subscribe(
+      (data) =>  {
+        if (data) {
+          this.sharedService.notify('success', 'Sign in successfull !');
+        }
+      }
+    )
+
   }
 
   toggleSignup() {
     this.toggleBlock.next('signin');
   }
 
-  submitForm() {
-    console.log(this.signupForm.controls['contact']);
+  submitForm() {    
+
     if (this.signupForm.invalid) {
+      this.signupForm.controls['first_name'].markAsTouched();
+      this.signupForm.controls['last_name'].markAsTouched();
+      this.signupForm.controls['contact'].markAsTouched();
+      this.signupForm.controls['email'].markAsTouched();
+      this.signupForm.controls['password'].markAsTouched();
+      this.signupForm.controls['confirm'].markAsTouched();
       return;
     }
 

@@ -4,6 +4,7 @@ import { UserService } from 'src/app/services/user.service';
 import { IUser } from 'src/app/models/User';
 import { SharedService } from 'src/app/services/shared.service';
 import { IError } from 'src/app/models/Error';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,10 +24,12 @@ export class SigninComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
+    
     this.signinForm = this.fb.group({
       email: ['', [
         Validators.required,
@@ -63,6 +66,8 @@ export class SigninComponent implements OnInit {
  
   submitForm() {
     if (this.signinForm.invalid) {
+      this.signinForm.controls['email'].markAsTouched();
+      this.signinForm.controls['password'].markAsTouched();
       return;
     }
 
@@ -71,6 +76,7 @@ export class SigninComponent implements OnInit {
     modifiedUser.password = this.signinForm.value.password;
 
     this.userService.login(modifiedUser);
+
   }
 
 }

@@ -64,8 +64,10 @@
             Confirm password is required
         </span>
     </nz-form-item>
-
-    <button nz-button class='signup-button'>SIGN UP</button>
+    <div class='spinner' *ngIf='loading'>
+        <nz-spin nzSimple></nz-spin>
+    </div>
+    <button nz-button class='signup-button' *ngIf='!loading'>SIGN UP</button>
 </form>
 <h4 class='subheading'>
     <a (click)='toggleSignup()'>Already have a account?</a>

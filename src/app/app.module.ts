@@ -18,19 +18,24 @@ import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './store/effects/user.effects';
 import { NzMessageModule } from 'ng-zorro-antd/message';
-
+import { LayoutModule } from './pages/layout/layout.module';
+import { AboutComponent } from './pages/about/about.component';
+import { ShopComponent } from './pages/shop/shop.component';
 
 registerLocaleData(en);
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AboutComponent,
+    ShopComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthenticationModule,
+    LayoutModule,
     StoreModule.forRoot({}),
     StoreModule.forFeature('State', reducers, {
       metaReducers: [...metaReducers]

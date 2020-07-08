@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-authentication',
@@ -12,10 +13,22 @@ export class AuthenticationComponent implements OnInit {
   signup: boolean = false;
 
   constructor(
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
+
+    // IF user is authenticated redirect to home
+    this.userService.getIsAuthenticated().subscribe(
+      (data) => {
+        if (data) {
+          this.router.navigate(['']);
+        }
+      }
+    )
+
     // On url traverse
     if (this.activatedRoute?.routeConfig?.path === 'signin') {
       this.signin = true;

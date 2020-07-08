@@ -70,9 +70,11 @@ export class UserService {
     let user = {...userObject};
     user.shopId = this.shopId;
     user.clientId = this.clientId;
+    this.store.dispatch(UserActions.startRegister({user}));
   }
 
   _handleError(err: HttpErrorResponse) {
+    console.log(err);
     let customError = {...this.errorInstance};
     customError.status = err.status;
     customError.friendly = err.message;

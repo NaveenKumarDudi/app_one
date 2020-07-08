@@ -6,6 +6,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
     NzFormModule,
     NzInputModule,
     NzButtonModule,
-    NzInputNumberModule
+    NzInputNumberModule,
+    NzSpinModule
   ],
   exports: [
     SignupComponent

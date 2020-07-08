@@ -1,0 +1,53 @@
+<div class="header">
+    <a class='logo-container' [routerLink]="['']">
+        NEXA PHARMACY
+    </a>
+    <div class="options">
+        <a class='option' routerLinkActive='active-link'  [routerLink]="['/shop']">
+            Shop
+        </a>
+        <a class='option' routerLinkActive='active-link' [routerLink]="['/contact']">
+            Contact
+        </a>
+        <a class='option' routerLinkActive='active-link' [routerLink]="['/about']">
+            About
+        </a>
+        <a *ngIf='!isAuthenticated' class='option' routerLinkActive='active-link' [routerLink]="['/signin']">
+            Sign In
+        </a>
+        <i class='option icon-type cart-button' nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+        <i class='option icon-type menu-button' 
+            (click)='open()'
+            nz-icon nzType="menu" nzTheme="outline"></i>
+    </div>
+</div>
+
+<nz-drawer 
+    [nzClosable]="false" 
+    [nzVisible]="visible" 
+    nzPlacement="right" 
+    nzTitle="NEXA PHARMACY" 
+    (nzOnClose)="close()">
+  <ul class='drawer-menu' (click)='close()'>
+      <li>
+        <a class='option' routerLinkActive='active-link' [routerLink]="['/shop']">
+            Shop
+        </a>
+      </li>
+      <li>
+        <a class='option' routerLinkActive='active-link' [routerLink]="['/contact']">
+            Contact
+        </a>
+      </li>
+      <li>
+        <a class='option' routerLinkActive='active-link' [routerLink]="['/about']">
+            About
+        </a>
+      </li>
+      <li>
+        <a *ngIf='!isAuthenticated' class='option' routerLinkActive='active-link' [routerLink]="['/signin']">
+            Sign In
+        </a>
+      </li>
+  </ul>
+</nz-drawer>
