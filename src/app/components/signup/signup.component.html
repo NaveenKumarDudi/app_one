@@ -1,27 +1,70 @@
 <h1 class='heading'>Sign Up</h1>
 <form nz-form [formGroup]='signupForm' (ngSubmit)='submitForm()' class='signup-form'>
     <nz-form-item>
-        <nz-form-control nzErrorTip="Email is required !">
-            <nz-input-group nzPrefixIcon="user">
-                <input type="text" nz-input formControlName="email" placeholder="Email" />
-            </nz-input-group>
-        </nz-form-control>
+        <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="first_name" placeholder="First name" />
+        </nz-input-group>
+        <span class="error" *ngIf='signupForm.controls["first_name"].hasError("required")
+             && signupForm.controls["first_name"].touched'>
+            First name is required
+        </span>
     </nz-form-item>
     <nz-form-item>
-        <nz-form-control nzErrorTip="Please input your Password!">
-            <nz-input-group nzPrefixIcon="lock">
-                <input type="password" nz-input formControlName="password" placeholder="Password" />
-            </nz-input-group>
-        </nz-form-control>
+        <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="last_name" placeholder="Last name" />
+        </nz-input-group>
+        <span class="error" *ngIf='signupForm.controls["last_name"].hasError("required")
+             && signupForm.controls["last_name"].touched'>
+            Last name is required
+        </span>
     </nz-form-item>
     <nz-form-item>
-        <nz-form-control nzErrorTip="Confirm Password is required!">
-            <nz-input-group nzPrefixIcon="lock">
-                <input type="password" nz-input formControlName="confirm" placeholder="Password" />
-            </nz-input-group>
-        </nz-form-control>
+        <nz-input-group nzPrefixIcon="mobile">
+            <input type="text" minlength="7" maxlength="10" nz-input formControlName="contact" placeholder="Mobile number" />
+        </nz-input-group>
+        <span class="error" *ngIf='signupForm.controls["contact"].hasError("required")
+        && signupForm.controls["contact"].touched'>
+            Mobile number is required
+        </span>
+        <span class="error" *ngIf='signupForm.controls["contact"].hasError("minlength")
+        || signupForm.controls["contact"].hasError("maxlength") 
+        || signupForm.controls["contact"].hasError("pattern") 
+        && signupForm.controls["contact"].touched'>
+            Invalid mobile number
+        </span>
     </nz-form-item>
-    
+    <nz-form-item>
+        <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="email" placeholder="Email" />
+        </nz-input-group>
+        <span class="error" *ngIf='signupForm.controls["email"].hasError("email") 
+            && signupForm.controls["email"].touched'>
+            Invalid email address
+        </span>
+        <span class="error" *ngIf='signupForm.controls["email"].hasError("required")
+             && signupForm.controls["email"].touched'>
+            Email is required
+        </span>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="password" placeholder="Password" />
+        </nz-input-group>
+        <span class="error" *ngIf='signupForm.controls["password"].hasError("required")
+             && signupForm.controls["password"].touched'>
+            Password is required
+        </span>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="confirm" placeholder="Confirm password" />
+        </nz-input-group>
+        <span class="error" *ngIf='signupForm.controls["confirm"].hasError("required")
+             && signupForm.controls["confirm"].touched'>
+            Confirm password is required
+        </span>
+    </nz-form-item>
+
     <button nz-button class='signup-button'>SIGN UP</button>
 </form>
 <h4 class='subheading'>

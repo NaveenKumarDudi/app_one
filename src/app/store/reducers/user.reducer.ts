@@ -2,6 +2,7 @@ import { IUser } from 'src/app/models/User';
 import { IError } from 'src/app/models/Error';
 import { createReducer, on, Action } from '@ngrx/store';
 import * as UserActions from '../actions/user.actions';
+import { state } from '@angular/animations';
 
 export interface UserState{
     user?: IUser;
@@ -27,11 +28,33 @@ const userReducer = createReducer(
         ...state,
         user: user,
         loading: false,
+        error: null,
         isAuthenticated: true
     })),
     on(UserActions.loginFail, (state, { error }) => ({
             ...state,
-            error: error
+            error: error,
+            user: null,
+            loading: false,
+            isAuthenticated: false
+    })),
+    on(UserActions.startRegister, state => ({
+        ...state,
+        loading: true
+    })),
+    on(UserActions.registerSuccess, (state, { user }) => ({
+        ...state,
+        user: user,
+        loading: false,
+        error: null,
+        isAuthenticated: true
+    })),
+    on(UserActions.registerFail, (state, { error }) => ({
+        ...state,
+        error: error,
+        user: null,
+        isAuthenticated: false,
+        loading: false
     }))
 );
 

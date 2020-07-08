@@ -42,23 +42,47 @@ export class UserService {
   }
 
   _authenticate(user: IUser): Observable<IUser> {
-    let modifiedUser = {...user};
-    modifiedUser.shopId = this.shopId;
-    modifiedUser.clientId = this.clientId;
     return this.http.post<IUser>(
       this.baseAuth + 'customer/login',
-      modifiedUser
+      user
     ).pipe(
-      catchError(err => this._handleError)
-    )
+      catchError(err => this._handleError(err))
+    );
   }
 
-  login(user: IUser) {
+  _register(user: IUser): Observable<IUser> {
+    return this.http.post<IUser>(
+      this.baseAuth + 'customer/register',
+      user
+    ).pipe(
+      catchError(err => this._handleError(err))
+    );
+  }
+
+  login(userObject: IUser) {
+    let user = {...userObject};
+    user.shopId = this.shopId;
+    user.clientId = this.clientId;
     this.store.dispatch(UserActions.startLogin({user}));
+  }
+
+  register(userObject: IUser) {
+    let user = {...userObject};
+    user.shopId = this.shopId;
+    user.clientId = this.clientId;
   }
 
   _handleError(err: HttpErrorResponse) {
     let customError = {...this.errorInstance};
+    customError.status = err.status;
+    customError.friendly = err.message;
+    customError.message = err.message;
+    if (err.error?.status === 'INVALID_PASSWORD') {
+      customError.friendly = 'Invalid credentials';
+    }
+    if (err.error?.status === 'USER_NOT_FOUND') {
+      customError.friendly = 'No user found with this email!';
+    }
     return throwError(customError);
   }
 

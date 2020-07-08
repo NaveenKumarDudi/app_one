@@ -9,6 +9,9 @@
     text-align: center;
 }
 .signup-form {
+    nz-input-number {
+        width: 100%;
+    }
     .error {
         color: rgba(216, 56, 56, 0.8);
         padding-top: 0.25rem;

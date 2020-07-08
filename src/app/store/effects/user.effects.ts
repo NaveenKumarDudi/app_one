@@ -25,4 +25,17 @@ export class UserEffects {
         )
     );
 
+    register$ = createEffect(
+        () => this.action.pipe(
+            ofType(UserActions.startRegister),
+            exhaustMap(action => 
+                this.userService._register(action.user)
+                    .pipe(
+                        map(user => UserActions.registerSuccess({user})),
+                        catchError(error => of(UserActions.registerFail({error})))
+                    )    
+            )
+        )
+    );
+
 }

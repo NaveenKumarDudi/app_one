@@ -17,6 +17,7 @@ import { AuthenticationModule } from './pages/authentication/authentication.modu
 import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './store/effects/user.effects';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 
 registerLocaleData(en);
@@ -39,6 +40,7 @@ registerLocaleData(en);
     ]),
     FormsModule,
     ReactiveFormsModule,
+    NzMessageModule,
     HttpClientModule,
     BrowserAnimationsModule,
   ],

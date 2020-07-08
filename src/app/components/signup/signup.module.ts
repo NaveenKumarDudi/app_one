@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
     ReactiveFormsModule,
     NzFormModule,
     NzInputModule,
-    NzButtonModule
+    NzButtonModule,
+    NzInputNumberModule
   ],
   exports: [
     SignupComponent
