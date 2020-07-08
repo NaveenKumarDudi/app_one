@@ -23,7 +23,7 @@
             nz-icon nzType="menu" nzTheme="outline"></i>
     </div>
 </div>
-<app-cart-dropdown *ngIf='cartDropdown'></app-cart-dropdown>
+<app-cart-dropdown *ngIf='cartDropdown' (toggleDropdown)='toggleDropdown()'></app-cart-dropdown>
 <nz-drawer 
     [nzClosable]="false" 
     [nzVisible]="visible" 

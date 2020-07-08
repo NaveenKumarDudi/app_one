@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer.component';
+import { RouterModule } from '@angular/router';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 
 
@@ -9,7 +11,9 @@ import { FooterComponent } from './footer.component';
     FooterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    NzGridModule
   ],
   exports: [
     FooterComponent

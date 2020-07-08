@@ -17,6 +17,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     RouterModule,
     NavbarModule,
     FooterModule,
+    FooterModule,
     NzGridModule,
     NzIconModule
   ],

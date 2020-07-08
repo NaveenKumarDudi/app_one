@@ -6,6 +6,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ShopComponent } from './pages/shop/shop.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'shop',
         component: ShopComponent
+      },
+      {
+        path: 'checkout',
+        component: CheckoutComponent
       }
     ]
   },

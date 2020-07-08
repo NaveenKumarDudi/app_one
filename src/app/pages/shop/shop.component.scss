@@ -1,0 +1,42 @@
+
+.wrapper {
+  .category-filter {
+  }
+  .products-wrapper {
+    .items {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 1rem;
+    }
+  }
+}
+
+@media all and (max-width: 978px) {
+  .wrapper {
+    .category-filter {
+      display: none;
+    }
+    .products-wrapper {
+      .items {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 578px) {
+  .wrapper {
+    .category-filter {
+      display: none;
+    }
+    .products-wrapper {
+      .items {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

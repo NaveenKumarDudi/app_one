@@ -19,6 +19,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './store/effects/user.effects';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { LayoutModule } from './pages/layout/layout.module';
+import { CheckoutModule } from './pages/checkout/checkout.module';
+import { ShopModule } from './pages/shop/shop.module';
 
 
 registerLocaleData(en);
@@ -33,6 +35,8 @@ registerLocaleData(en);
     AppRoutingModule,
     AuthenticationModule,
     LayoutModule,
+    CheckoutModule,
+    ShopModule,
     StoreModule.forRoot({}),
     StoreModule.forFeature('State', reducers, {
       metaReducers: [...metaReducers]

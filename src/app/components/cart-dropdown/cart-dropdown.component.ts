@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-dropdown',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartDropdownComponent implements OnInit {
 
-  constructor() { }
+  @Output('toggleDropdown') toggleDropdown = new EventEmitter<any>();
+
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+
+
+  navigateToCheckout() {
+    this.toggleDropdown.emit();
+    this.router.navigate(['checkout']);
   }
 
 }
