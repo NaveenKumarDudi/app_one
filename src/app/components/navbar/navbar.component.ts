@@ -10,6 +10,7 @@ export class NavbarComponent implements OnInit {
 
   visible: boolean = false;
   isAuthenticated: boolean = false;
+  cartDropdown: boolean = false; 
 
   constructor(
     private userService: UserService
@@ -19,6 +20,10 @@ export class NavbarComponent implements OnInit {
     this.userService.getIsAuthenticated().subscribe(
       data => this.isAuthenticated = data
     );
+  }
+
+  toggleDropdown() {
+    this.cartDropdown = !this.cartDropdown;
   }
 
   open(): void {

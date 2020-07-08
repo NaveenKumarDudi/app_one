@@ -19,8 +19,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './store/effects/user.effects';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { LayoutModule } from './pages/layout/layout.module';
-import { AboutComponent } from './pages/about/about.component';
-import { ShopComponent } from './pages/shop/shop.component';
+
 
 registerLocaleData(en);
 
@@ -28,8 +27,6 @@ registerLocaleData(en);
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent,
-    ShopComponent
   ],
   imports: [
     BrowserModule,

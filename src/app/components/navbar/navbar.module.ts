@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { CartDropdownModule } from '../cart-dropdown/cart-dropdown.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
   imports: [
     CommonModule,
     RouterModule,
+    CartDropdownModule,
     NzIconModule,
     NzDrawerModule,
     NzMenuModule

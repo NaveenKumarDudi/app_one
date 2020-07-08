@@ -15,13 +15,15 @@
         <a *ngIf='!isAuthenticated' class='option' routerLinkActive='active-link' [routerLink]="['/signin']">
             Sign In
         </a>
-        <i class='option icon-type cart-button' nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+        <i class='option icon-type cart-button' 
+            (click)='toggleDropdown()'
+            nz-icon nzType="shopping-cart" nzTheme="outline"></i>
         <i class='option icon-type menu-button' 
             (click)='open()'
             nz-icon nzType="menu" nzTheme="outline"></i>
     </div>
 </div>
-
+<app-cart-dropdown *ngIf='cartDropdown'></app-cart-dropdown>
 <nz-drawer 
     [nzClosable]="false" 
     [nzVisible]="visible" 
