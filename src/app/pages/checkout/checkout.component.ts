@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
+import { ICart } from 'src/app/models/Cart';
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+  cartItems: ICart [];
+
+  constructor(
+    private cartService: CartService
+  ) { }
 
   ngOnInit(): void {
+    this.cartService.getCartItems().subscribe(
+      (data) => {
+        if (data) {
+          this.cartItems = data;
+        }
+      }
+    );
   }
 
 }

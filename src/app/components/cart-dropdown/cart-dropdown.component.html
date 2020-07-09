@@ -4,9 +4,11 @@
             Your cart is empty
         </span>
         <app-cart-item [cartItem]='cartItem' *ngFor='let cartItem of cartItems'></app-cart-item>
-    </div>
-    <button 
+        <button
+        *ngIf='cartItems'
+        class='checkout-button'
         nz-button
         (click)='navigateToCheckout()'
         >CHECKOUT</button>
+    </div>
 </div>

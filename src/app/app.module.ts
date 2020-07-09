@@ -18,6 +18,7 @@ import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './store/effects/user.effects';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { LayoutModule } from './pages/layout/layout.module';
 import { CheckoutModule } from './pages/checkout/checkout.module';
 import { ShopModule } from './pages/shop/shop.module';
@@ -47,6 +48,7 @@ registerLocaleData(en);
     FormsModule,
     ReactiveFormsModule,
     NzMessageModule,
+    NzNotificationModule,
     HttpClientModule,
     BrowserAnimationsModule,
   ],

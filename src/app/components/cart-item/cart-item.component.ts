@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
+import { SharedService } from 'src/app/services/shared.service';
+
 
 @Component({
   selector: 'app-cart-item',
@@ -10,6 +12,8 @@ export class CartItemComponent implements OnInit {
 
   @Input('cartItem') cartItem: any;
 
+  @Output('notifier') notifier = new EventEmitter<{type: string, title: string, message: string}>();
+
   constructor(
     private cartService: CartService
   ) { }
@@ -17,12 +21,6 @@ export class CartItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addItem(cartItem) {
-    this.cartService.addToCart(cartItem);
-  }
 
-  removeItem(cartItem) {
-    this.cartService.removeFromCart(cartItem);
-  }
 
 }

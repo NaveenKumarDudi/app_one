@@ -6,7 +6,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { CartDropdownModule } from '../cart-dropdown/cart-dropdown.module';
-
+import { NzBadgeModule } from 'ng-zorro-antd/badge';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { CartDropdownModule } from '../cart-dropdown/cart-dropdown.module';
     CartDropdownModule,
     NzIconModule,
     NzDrawerModule,
-    NzMenuModule
+    NzMenuModule,
+    NzBadgeModule
   ],
   exports: [
     NavbarComponent

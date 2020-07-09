@@ -1,1 +1,5 @@
-<p>checkout works!</p>
+<div nz-row nzJustify='center' class='wrapper'>
+    <div nz-col [nzXs]='{span: 22}' [nzLg]='{span: 22}' >
+        <app-checkout-item [product]='product' *ngFor='let product of cartItems'></app-checkout-item>
+    </div>
+</div>

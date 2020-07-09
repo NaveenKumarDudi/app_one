@@ -29,7 +29,6 @@ export class CartDropdownComponent implements OnInit {
   }
 
 
-
   navigateToCheckout() {
     this.toggleDropdown.emit();
     this.router.navigate(['checkout']);
