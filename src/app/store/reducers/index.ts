@@ -7,20 +7,23 @@ import {
 import { localStorageSync } from 'ngrx-store-localstorage';
 
 import * as fromUser from './user.reducer';
+import * as fromCart from './cart.reducer';
 
 // Here comes the name of the states
 // Individual state that need to be stored in local storage
-const KEYS_TO_PERSIST = ['userState'];
+const KEYS_TO_PERSIST = ['userState', 'cartState'];
 
 // Defining app state
 export interface State {
     // Reducer states here
-    userState?: fromUser.UserState 
+    userState?: fromUser.UserState,
+    cartState?: fromCart.CartState
 };
 
 export const reducers: ActionReducerMap<State> = {
     // our reducers here
-    userState: fromUser.reducer
+    userState: fromUser.reducer,
+    cartState: fromCart.reducer
 };
 
 

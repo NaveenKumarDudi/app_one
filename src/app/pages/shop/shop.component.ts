@@ -17,5 +17,4 @@ export class ShopComponent implements OnInit {
   ngOnInit(): void {
     this.products = this.shopService.generateProducts();
   }
-
 }

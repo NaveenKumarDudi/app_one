@@ -1,6 +1,9 @@
 <div class="cart-dropdown">
     <div class="cart-items">
-        
+        <span *ngIf='!cartItems' class='empty-message'>
+            Your cart is empty
+        </span>
+        <app-cart-item [cartItem]='cartItem' *ngFor='let cartItem of cartItems'></app-cart-item>
     </div>
     <button 
         nz-button

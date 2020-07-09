@@ -2,7 +2,6 @@ import { IUser } from 'src/app/models/User';
 import { IError } from 'src/app/models/Error';
 import { createReducer, on, Action } from '@ngrx/store';
 import * as UserActions from '../actions/user.actions';
-import { state } from '@angular/animations';
 
 export interface UserState{
     user?: IUser;

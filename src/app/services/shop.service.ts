@@ -18,12 +18,12 @@ export class ShopService {
         const randomStock = Math.floor((Math.random() * 1000) % 2);
         const randomPrice = (Math.random() * (+maxPrice - +minPrice)) + +minPrice;
         a[i] = {
-            "productId": 1000 + i + 1,
-            "productCategory": `Category ${randomCategory}`,
-            "productName": `Product ${i + 1}`,
-            "productImage": `https://picsum.photos/400?image=${Math.floor(Math.random() * 1000)}`,
-            "productStock": !!randomStock,
-            "productPrice": randomPrice.toFixed(3)
+            "id": 1000 + i + 1,
+            "categoryId": `Category ${randomCategory}`,
+            "name": `Product ${i + 1}`,
+            "imagePath": `https://picsum.photos/400?image=${Math.floor(Math.random() * 1000)}`,
+            "stockQuantity": !!randomStock,
+            "price": randomPrice.toFixed(3)
         }
     }
     return a;
