@@ -1,8 +1,25 @@
 
 .wrapper {
   .category-filter {
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
   }
   .products-wrapper {
+    .filters{
+      cursor: pointer;
+      padding: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      .sorter {
+        justify-self: flex-end;
+        .price-sorter{
+          transform: rotate(90deg);
+        }
+      }
+    }
     .items {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;

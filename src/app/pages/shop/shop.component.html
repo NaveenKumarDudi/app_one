@@ -1,10 +1,23 @@
 <div nz-row nzJustify='center' class='wrapper'>
     <div nz-col [nzLg]='{span: 4}' class='category-filter'>
-        Category
+        <h2>Category</h2>
+        <ul class='list'>
+            <nz-checkbox-group [(ngModel)]="categoryCheckBox" (ngModelChange)='changeProducts()'></nz-checkbox-group>
+        </ul>
     </div>
     <div nz-col [nzXs]='{span: 24}' [nzLg]='{span: 20}' class='products-wrapper'>
-        <div class='items'>
-            <app-items [product]='product' *ngFor='let product of products;'></app-items> 
+        <div class='filters'>
+            <span (click)='open()'>Show Category</span>
+            <div class='sorter'>
+                <p (click)='sortByPrice()'>Price&nbsp;<i class='price-sorter' nz-icon nzType="swap" nzTheme="outline"></i></p>
+            </div>
         </div>
-    </div> 
+        <div class='items' *ngIf='products'>
+            <app-items [product]='product' *ngFor='let product of activeProducts;'></app-items>
+        </div>
+    </div>
 </div>
+
+<nz-drawer [nzClosable]="false" [nzVisible]="visible" nzPlacement="left" nzTitle="Category" (nzOnClose)="close()">
+    <nz-checkbox-group [(ngModel)]="categoryCheckBox" (ngModelChange)='changeProducts()'></nz-checkbox-group>
+</nz-drawer>

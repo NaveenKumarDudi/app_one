@@ -22,6 +22,7 @@ import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { LayoutModule } from './pages/layout/layout.module';
 import { CheckoutModule } from './pages/checkout/checkout.module';
 import { ShopModule } from './pages/shop/shop.module';
+import { ShopEffects } from './store/effects/shop.effects';
 
 
 registerLocaleData(en);
@@ -43,7 +44,8 @@ registerLocaleData(en);
       metaReducers: [...metaReducers]
     }),
     EffectsModule.forRoot([
-      UserEffects
+      UserEffects,
+      ShopEffects
     ]),
     FormsModule,
     ReactiveFormsModule,
