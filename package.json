@@ -24,7 +24,7 @@
     "ng-zorro-antd": "^11.0.0",
     "ngrx-store-localstorage": "^9.0.0",
     "rxjs": "~6.5.4",
-    "tslib": "^1.10.0",
+    "tslib": "^1.14.1",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
